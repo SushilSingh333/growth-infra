@@ -1145,8 +1145,43 @@ a { text-decoration: none; transition: var(--transition); }
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 }
-.pricing-table { min-width: 480px; }
 .pricing-table { margin: 0; }
+
+/* Mobile pricing cards (replaces horizontally-scrolling table) */
+.pricing-cards { display: flex; flex-direction: column; gap: 12px; }
+.pricing-card {
+  background: #fff;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  padding: 14px 16px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+.pricing-card.best {
+  border: 1.5px solid var(--gold-500);
+  box-shadow: 0 10px 24px rgba(180, 138, 50, 0.18);
+  background: linear-gradient(180deg, #fff, rgba(201, 161, 74, 0.06));
+}
+.pricing-card .pc-head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-bottom: 10px;
+  margin-bottom: 8px;
+  border-bottom: 1px dashed var(--line);
+}
+.pricing-card .pc-term {
+  font-weight: 700;
+  color: var(--green-900);
+  font-size: 1.05rem;
+}
+.pricing-card .pc-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 6px 0;
+  font-size: 0.92rem;
+}
+.pricing-card .pc-row span { color: var(--ink-500); }
+.pricing-card .pc-row strong { color: var(--green-800); font-weight: 700; }
+.pricing-card.best .pc-row strong { color: var(--gold-600); }
+.pricing-cards .fine-print { padding-top: 8px; }
 .pricing-table thead th {
   background: linear-gradient(135deg, var(--green-800), var(--green-900));
   color: #fff;
