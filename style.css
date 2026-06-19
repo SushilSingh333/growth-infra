@@ -276,16 +276,15 @@ a { text-decoration: none; transition: var(--transition); }
   height: 72px;
   width: auto;
   display: block;
-  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.35));
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.35));
   transition: var(--transition);
 }
-.brand-logo.light {
-  background: #fff;
-  border-radius: 14px;
-  padding: 6px 12px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
-  filter: none;
-}
+.brand-logo.light { filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.45)); }
+
+/* Swap logos based on navbar background: light variant over hero, dark variant when scrolled */
+.brand-logo-light-bg { display: none; }
+.main-nav.scrolled .brand-logo-dark-bg { display: none; }
+.main-nav.scrolled .brand-logo-light-bg { display: block; }
 .logo-mark {
   width: 46px; height: 46px;
   display: grid; place-items: center;
