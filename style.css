@@ -2029,9 +2029,14 @@ a { text-decoration: none; transition: var(--transition); }
   .plot-img { height: 200px; }
   .gallery-grid { --bs-gutter-x: 0.75rem; }
   .gallery-grid .gal-item { height: 200px; }
-  .lifestyle-card { height: 280px; }
-  .ls-content { padding: 20px; }
-  .ls-content h5 { font-size: 1.15rem; }
+  .lifestyle-card { height: 340px; background-position: center top; }
+  .lifestyle-card::before {
+    background: linear-gradient(180deg, transparent 50%, rgba(31, 58, 35, 0.88) 95%);
+  }
+  .ls-content { padding: 16px 18px; }
+  .ls-content i { font-size: 1.6rem; margin-bottom: 4px; }
+  .ls-content h5 { font-size: 1.1rem; margin-bottom: 4px; }
+  .ls-content p { font-size: 0.82rem; }
   .stat-block .counter { font-size: 1.8rem; }
   .stat-block small { font-size: 0.72rem; }
   .stats-section { padding: 50px 0; }
