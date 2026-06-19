@@ -148,6 +148,37 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // --- Custom Plot Size: reveal input only when "Custom Size" picked, validate > 300 ---
+  document.querySelectorAll('select[name="plot"]').forEach(select => {
+    const form = select.closest('form');
+    const wrap = form && form.querySelector('.custom-size-wrap');
+    if (!wrap) return;
+    const input = wrap.querySelector('input[name="customSize"]');
+
+    const sync = () => {
+      const isCustom = select.value === 'Custom Size';
+      wrap.hidden = !isCustom;
+      input.required = isCustom;
+      if (!isCustom) {
+        input.value = '';
+        input.setCustomValidity('');
+      }
+    };
+    select.addEventListener('change', sync);
+    sync();
+
+    input.addEventListener('input', () => {
+      const v = parseInt(input.value, 10);
+      if (input.value === '') {
+        input.setCustomValidity('');
+      } else if (isNaN(v) || v <= 300) {
+        input.setCustomValidity('Custom plot size must be greater than 300 sq. yd.');
+      } else {
+        input.setCustomValidity('');
+      }
+    });
+  });
+
   // --- Newsletter footer form ---
   const newsletter = document.querySelector('.newsletter');
   if (newsletter) {
